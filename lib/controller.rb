@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/gossips/:id/edit/' do 
-    Gossip.destroy((params['gossip_id'].to_i) + 1)
+    Gossip.destroy((params['gossip_id'].to_i) - 1)
     Gossip.new(params["gossip_author"], params["gossip_content"]).save
     redirect '/'
   end
