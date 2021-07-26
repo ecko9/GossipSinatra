@@ -8,9 +8,11 @@
     <% gossips.each do |gossip| %>
         <p>
           <%= gossip.author %><br/>
-          <%= gossip.content %>
+          <%= gossip.content %><br/>
           <%  url = "/gossips/" + "#{gossips.index(gossip) + 1}" %>
-          <a href=<%= url %>>Aller au gossip</a>
+          <%  url_edit = "/gossips/" + "#{gossips.index(gossip) + 1}" + "/edit/" %>
+          <a href=<%= url %>>Aller au gossip</a><br/>
+          <a href=<%= url_edit %>>Editer le gossip</a><br/>
         </p>
       <% end %>
   </body>

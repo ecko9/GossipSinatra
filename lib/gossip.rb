@@ -35,26 +35,20 @@ end
     all_gossips << gossip_provisoire
   end
   return all_gossips
+  file.close
 end
 
 ########################################
- ####### DETRUIRE GOSSIPS D UN AUTEUR
- def self.destroy(auteur)
-  all_gossips = []
-  file = File.foreach("./db/gossip.csv") do |line|
-    if line.split(',')[0] == auteur
-    else
-    gossip_provisoire = Gossip.new(line.split(',')[0], line.split(',')[1])
-    all_gossips << gossip_provisoire
-    end
-  end
+ ####### DETRUIRE ET REECRIRE
+ def self.destroy(id)
+  all_gossips = Gossip.all
+  all_gossips.delete_at(id)
   file = File.open("./db/gossip.csv", "w")
   all_gossips.each do |gossip|
     file.puts("#{gossip.author},#{gossip.content}")
   end
   file.close
-
-end
+ end
 
 
  ########################################
