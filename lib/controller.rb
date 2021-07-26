@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
 
 ###########################
   get '/gossips/:id/edit/' do
-    erb :edit, locals: {id: params['id'].to_i}
+    erb :edit, locals: {id_old: params['id'].to_i}
   end
 
   post '/gossips/:id/edit/' do 

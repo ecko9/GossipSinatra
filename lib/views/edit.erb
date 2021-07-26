@@ -8,7 +8,7 @@
     <form action='/gossips/:id/edit/' method='POST'>
       Saisi ici ton nom :  <input type='text' name='gossip_author'/><br/>
       Réecris le potin : <input type='text' name='gossip_content'/><br/>
-      id du potin : <output name='gossip_id'><%=id%></output>
+      id du potin : actuel <%=id_old%> <input type='hidden' name='gossip_id' value ='<%=id_old.to_i%>'/> <br/>
       <input type='submit'>
     </form>
   </body>
